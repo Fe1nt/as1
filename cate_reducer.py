@@ -5,7 +5,6 @@ def read_map_output(file):
     for line in file:
         yield line.strip().split("\t", 2)
 
-
 def cate_reducer():
     current_category = ""
     categoryList = []
@@ -14,12 +13,11 @@ def cate_reducer():
             continue
         if current_category != category:
             outprint(current_category,categoryList)
-        current_category = category
-        categoryList = []
-    categoryList.append([video_id, country])
-    outprint(current_category,categoryList)
-
-
+            categoryList = []
+            current_category = category
+        categoryList.append([video_id,country])
+    outprint(current_category, categoryList)
+    
 def outprint(current_category,categoryList):
     categoryVideoList = []
     if current_category != "":
