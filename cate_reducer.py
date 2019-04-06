@@ -29,7 +29,7 @@ def cate_reducer():
             numVideo = len(list2)
             average =str(("%.2f" %(numCountry/numVideo)))
             print("{}\t{}".format(current_category, average))
-            current_category = ""
+            current_category = category
             category_count = []
     category_count = list(set([tuple(t) for t in category_count]))
     category_count = [list(v) for v in category_count]
