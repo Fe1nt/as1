@@ -4,7 +4,7 @@ def read_map_output(file):
     for line in file:
         yield line.strip().split("\t")
 
-def reducer():
+def cate_reducer():
     current_category = ""
     category_count = []  # this is a list
     #for category, video_id, country in read_map_output(sys.stdin):
@@ -51,4 +51,4 @@ def reducer():
    
 
 if __name__ == "__main__":
-    reducer()
+    cate_reducer()
