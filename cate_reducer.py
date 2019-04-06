@@ -9,7 +9,7 @@ def reducer():
     category_count = []  # this is a list
     #for category, video_id, country in read_map_output(sys.stdin):
     for category, videoID, countryID in read_map_output(sys.stdin):
-        
+
         if category=="category": # ignore the first row
             continue
         current_category =category
