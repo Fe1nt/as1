@@ -20,7 +20,7 @@ if __name__ == "__main__":
     for s in records.collect():
         grade=0
         if len(s[1])>=2:
-            grade=s[1][1][1]-s[1][0][1]
+            grade=int(s[1][1][1])-int(s[1][0][1])
             category=s[1][0][0]
             video_ID=s[0]
             list1.append((video_ID, [category,grade]))
