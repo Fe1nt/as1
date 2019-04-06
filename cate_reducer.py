@@ -2,7 +2,7 @@
 import sys
 def read_map_output(file):
     for line in file:
-        yield line.strip().split("\t", 2)
+        yield line.strip().split("\t")
 
 def reducer():
     current_category = ""
