@@ -25,7 +25,7 @@ def counting(lists):
         value = [gap,lists[1]]
         return(key,value)
     except:
-        return ()
+        return ('',[''])
 
 def changeKey(a):
     videoID=a[0]
