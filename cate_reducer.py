@@ -1,45 +1,54 @@
 #!/usr/bin/python3
 import sys
 def read_map_output(file):
-
     for line in file:
-        yield line.strip().split("\t")
+        yield line.strip().split("\t", 2)
 
-
-def cate_reducer():
-
+def reducer():
     current_category = ""
-    category_list = []
-
-    for category, videoID, country  in read_map_output(sys.stdin):
-       
-        if category =="category" :
+    category_count = []  # this is a list
+    #for category, video_id, country in read_map_output(sys.stdin):
+    for category, videoID, countryID in read_map_output(sys.stdin):
+        
+        if category=="category": # ignore the first row
             continue
-        if current_tag != category:
-            if current_category !="":
-                category_list=list(set([tuple(t) for t in category_list]))
-                category_list = [list(v) for v in category_list]
-                output = current_category  + "\t"
-                for item in range(len(category_list)):
-                    category_videolist.append(item[0])
-                category_videolist = list(set(category_videolist))
-                average = ("%.2f"%(float(len(category_list)))/float(len(category_videolist)))
-                output +="{},".format(average)
-                print(output.strip())
-            category_list = []
-            current_category = category
-        category_list.append([videoID,country])
-
-    if current_category !="":
-        category_list=list(set([tuple(t) for t in category_list]))
-        category_list = [list(v) for v in category_list]
-        output = current_category  + "\t"
-        for item in range(len(category_list)):
-            category_videolist.append(item[0])
-        category_videolist = list(set(category_videolist))
-        average = ("%.2f"%(float(len(category_list)))/float(len(category_videolist)))
-        output +="{},".format(average)
-        print(output.strip())
+        current_category =category
+        category_count.append[videoID,countryID]
+        if category != current_category:
+            category_count = list(set([tuple(t) for t in category_count]))
+            category_count = [list(v) for v in category_count]
+            numCountry = len(category_count)
+            list1 =[]
+            for item in category_count:
+                video =item[0]
+                list1.append[video]
+            list2 = []
+            for id in list1:
+                if id not in list2:
+                    list2.append(id)
+            numVideo = len(list2)
+            average =str(("%.2f" %(numCountry/numVideo)))
+            print("{}\t{}".format(current_category, average))
+            current_category = ""
+            category_count = []
+    category_count = list(set([tuple(t) for t in category_count]))
+    category_count = [list(v) for v in category_count]
+    numCountry = len(category_count)
+    list1 =[]
+    for item in category_count:
+        video =item[0]
+        list1.append[video]
+    list2 = []
+    for id in list1:
+        if  id not in list2:
+            list2.append(id)
+    numVideo = len(list2)
+    average =str(("%.2f" %(numCountry/numVideo)))
+    print("{}\t{}".format(current_category, average))
+    current_category = ""
+    category_count = []
+   # for the last category, an output action after for loop ends is necessary
+   
 
 if __name__ == "__main__":
-    cate_reducer()
+    reducer()
