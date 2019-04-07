@@ -21,7 +21,7 @@ def filtering(record):
 def counting(lists):
     try:
         gap = int(lists[3]) - int(lists[2])
-        key = lists[0]+lists[3]
+        key = lists[0]+lists[4]
         value = [lists[1],gap]
         return(key,value)
     except:
