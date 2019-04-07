@@ -22,7 +22,7 @@ def counting(lists):
     try:
         gap = int(lists[3]) - int(lists[2])
         key = lists[0]+lists[3]
-        value = [gap,lists[1]]
+        value = [lists[1],gap]
         return(key,value)
     except:
         return ('',[''])
